@@ -12,7 +12,10 @@ import { asyncAddTalk } from '../states/talks/action';
 
 function DetailPage() {
   const { id } = useParams();
-  const { talkDetail = null, authUser } = useSelector((states) => states);
+  const { talkDetail = null, authUser } = useSelector((state) => ({
+    talkDetail: state.talkDetail,
+    authUser: state.authUser,
+  }));
   // @TODO: get talkDetail and authUser state from store
   const dispatch = useDispatch(); // @TODO: get dispatch function from store
 
@@ -28,7 +31,7 @@ function DetailPage() {
 
   const onReplyTalk = (text) => {
     // @TODO: dispatch async action to add reply talk
-    dispatch(asyncAddTalk(text));
+    dispatch(asyncAddTalk({ text }));
   };
 
   if (!talkDetail) {
