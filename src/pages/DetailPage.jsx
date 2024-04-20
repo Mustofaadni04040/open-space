@@ -12,10 +12,12 @@ import { asyncAddTalk } from '../states/talks/action';
 
 function DetailPage() {
   const { id } = useParams();
-  const { talkDetail = null, authUser } = useSelector((state) => ({
-    talkDetail: state.talkDetail,
-    authUser: state.authUser,
-  }));
+  // const { talkDetail = null, authUser } = useSelector((state) => ({
+  //   talkDetail: state.talkDetail,
+  //   authUser: state.authUser,
+  // }));
+  const talkDetail = useSelector((state) => state.talkDetail);
+  const authUser = useSelector((state) => state.authUser);
   // @TODO: get talkDetail and authUser state from store
   const dispatch = useDispatch(); // @TODO: get dispatch function from store
 

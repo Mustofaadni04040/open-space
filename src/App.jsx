@@ -11,10 +11,12 @@ import { asyncPreloadProcess } from './states/isPreload/action';
 import { asyncUnsetAuthUser } from './states/authUser/action';
 
 function App() {
-  const { authUser = null, isPreload = false } = useSelector((state) => ({
-    authUser: state.authUser,
-    isPreload: state.isPreload,
-  }));
+  // const { authUser = null, isPreload = false } = useSelector((state) => ({
+  //   authUser: state.authUser,
+  //   isPreload: state.isPreload,
+  // }));
+  const authUser = useSelector((state) => state.authUser);
+  const isPreload = useSelector((state) => state.isPreload);
   // @TODO: get authUser and isPreLoad state from store
 
   const dispatch = useDispatch(); // @TODO: get dispatch function from store

@@ -6,15 +6,18 @@ import { asyncPopulateUsersAndTalks } from '../states/shared/action';
 import { asyncAddTalk, asyncToogleLikeTalk } from '../states/talks/action';
 
 function HomePage() {
-  const {
-    talks = [],
-    users = [],
-    authUser,
-  } = useSelector((state) => ({
-    talks: state.talks,
-    users: state.users,
-    authUser: state.authUser,
-  }));
+  // const {
+  //   talks = [],
+  //   users = [],
+  //   authUser,
+  // } = useSelector((state) => ({
+  //   talks: state.talks,
+  //   users: state.users,
+  //   authUser: state.authUser,
+  // }));
+  const talks = useSelector((state) => state.talks);
+  const users = useSelector((state) => state.users);
+  const authUser = useSelector((state) => state.authUser);
   // @TODO: get talks, users, and authUser state from store
 
   const dispatch = useDispatch(); // @TODO: get dispatch function from store
